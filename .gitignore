@@ -1,0 +1,53 @@
+# --- Compiled Java classes ---
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.nar
+*.rar
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+# --- Build Tool Directories ---
+target/
+bin/
+build/
+.gradle/
+.mtl/
+.incremental/
+
+# --- Eclipse Specific ---
+.metadata/
+.recommenders/
+remote_systems_temp_files/
+.sts4-cache/
+# Keep these if you want to share project settings, 
+# but usually, it's better to exclude them for clean builds:
+.project
+.classpath
+.settings/
+
+# --- IntelliJ IDEA Specific ---
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# --- VS Code Specific ---
+.vscode/
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
