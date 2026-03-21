@@ -6,8 +6,8 @@
 ## 👥 Collaborators
 * **Willy** - [GitHub Profile](https://github.com/willyhengwenloong)
 * **Balaji** - [GitHub Profile](https://github.com/balaji4567)
-* **ZhiYou** - [GitHub Profile](https://github.com/namehere)
-* **Ramesh** - [GitHub Profile](https://github.com/namehere)
+* **ZhiYou** - [GitHub Profile](https://github.com/3049564941-hub)
+* **Ramesh** - [GitHub Profile](https://github.com/uva-lgtm)
 
 ---
 
