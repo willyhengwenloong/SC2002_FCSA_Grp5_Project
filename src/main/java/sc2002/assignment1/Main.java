@@ -1,10 +1,11 @@
 package sc2002.assignment1;
 
-import ui.ConsoleUI;
+import battle.GameSetup;
 // Main entry point for the Turn Based Combat
 
 public class Main {
 	public static void main(String[] args) {
-        ConsoleUI.printLoadingScreen();
+        GameSetup setup = new GameSetup();
+        setup.settingUp();
     }
 }
