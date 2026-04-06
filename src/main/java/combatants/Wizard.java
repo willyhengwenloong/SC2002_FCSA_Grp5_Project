@@ -9,4 +9,8 @@ public class Wizard extends Player{
 	public Wizard() {
 		super("Wizard", Base_Hp, Base_Attack, Base_Defense, Base_Speed);
 	}
+	
+	public String getSpecialSkillName() {
+		return "Arcane Blast";
+	}
 }

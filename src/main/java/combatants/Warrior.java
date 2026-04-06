@@ -9,4 +9,8 @@ public class Warrior extends Player {
 	public Warrior() {
 		super("Warrior", Base_HP, Base_Attack, Base_Defense, Base_Speed);
 	}
+	
+	public String getSpecialSkillName() {
+		return "Shield Bash";
+	}
 }
