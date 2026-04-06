@@ -1,6 +1,6 @@
 package battle;
 import combatants.*;
-import ui.ConsoleUI;
+import ui.DisplayManager;
 import ui.InputHandler;
 
 public class GameSetup {
@@ -9,12 +9,12 @@ public class GameSetup {
 	public GameSetup() {}
 	
 	public void settingUp() {
-		ConsoleUI.printLoadingScreen();
+		DisplayManager.printLoadingScreen();
 		selectPlayer();
 	}
 	
 	public void selectPlayer() {
-		ConsoleUI.printPlayerChoices();
+		DisplayManager.printPlayerChoices();
 		int choice = InputHandler.readInt(1, 2);
 		if (choice == 1) {
 			selectedPlayer = new Warrior();
