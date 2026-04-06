@@ -45,6 +45,13 @@ public abstract class Combatants {
 		
 	}
 	
+	// Capped at MaxHP
+	public void heal(int amt) {
+		currentHp = Math.min(maxHp, currentHp + amt);
+	}
+	
+	//to return a summary of the combatant stats
+	public abstract String getStatusSummary();
 }
 
 

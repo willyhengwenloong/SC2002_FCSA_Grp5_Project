@@ -5,4 +5,8 @@ public abstract class Enemy extends Combatants{
 		super(name, hp, attack, defense, speed);
 		
 	}
+	
+	public String getStatusSummary() {
+		return "TEST Summary";
+	}
 }

@@ -1,12 +1,14 @@
 package items;
 
-import combatants.Player;
+import java.util.List;
+
+import combatants.*;
 
 public class Potion implements Items {
 	private static final int healamount = 100;
 	private boolean used = false;
 	
-	public String use(Player player, List<Combatant> targets) {
+	public String use(Player player, List<Combatants> targets) {
 		if (used) {
 			return "Potion used!";
 		}
