@@ -1,5 +1,7 @@
 package combatants;
 
+import java.util.List;
+
 public class Warrior extends Player {
 	private static final int Base_HP = 260;
 	private static final int Base_Attack = 40;
@@ -12,5 +14,26 @@ public class Warrior extends Player {
 	
 	public String getSpecialSkillName() {
 		return "Shield Bash";
+	}
+	
+	public void executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy) {
+		Combatants enemy = target.get(0); //only getting one target
+		
+		int enemyOldHp = enemy.getCurrentHp();
+		int damage = Math.max(0, getAttack() - enemy.getDefense());
+		enemy.takeDamage(damage);
+		
+		//apply stun effect here for 2 turns
+		
+		
+		
+		System.out.println(getName() + " uses Shield Bash on " + enemy.getName() 
+		+ " HP: " + enemyOldHp + " → " 
+		+ enemy.getCurrentHp() + " (dmg: " + getAttack() + "-" 
+				+ enemy.getDefense() + "=" + damage + ") | " + enemy.getName() + " STUNNED (2 turns)");
+		
+		if(!enemy.isAlive()) {
+			System.out.println(" ✗ ELIMINATED");
+		}
 	}
 }

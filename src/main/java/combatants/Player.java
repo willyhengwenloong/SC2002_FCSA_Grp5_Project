@@ -26,4 +26,7 @@ public abstract class Player extends Combatants {
 		//the "pass" in java
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
+	
+	public abstract void executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy);
+	
 }
