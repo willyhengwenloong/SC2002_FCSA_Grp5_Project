@@ -10,6 +10,10 @@ public abstract class Combatants {
 	private boolean alive;
 	private int defenseBuff;
 	private int defenseBuffTurnsRemaining;
+	private boolean stunned;
+	private int StunTurnsRemaining;
+	private boolean smokeBombProtected;
+	private int smokeBombTurnsRemaining;
 	
 	public Combatants(String name, int hp, int attack, int defense, int speed) {
 		this.name = name;
@@ -21,6 +25,10 @@ public abstract class Combatants {
 		this.alive = true;
 		this.defenseBuff = 0;
 		this.defenseBuffTurnsRemaining = 0;
+		this.stunned=false;
+		this.StunTurnsRemaining=0;
+		this.smokeBombProtected = false;
+		this.smokeBombTurnsRemaining = 0;
 	}
 	
 	//getter setter
@@ -28,6 +36,9 @@ public abstract class Combatants {
 	public int getMaxHp() {return maxHp;}
 	public int getCurrentHp() {return currentHp;}
 	public int getAttack() { return attack;}
+	public void setAttack(int attack) {
+		this.attack=attack;
+	}
 	public int getDefense() {return defense;}
 	public int getSpeed() {return speed;}
 	public boolean isAlive() {return alive;}
@@ -35,7 +46,9 @@ public abstract class Combatants {
 	public void setDefenseBuff(int defenseBuff) { this.defenseBuff = defenseBuff; }
 	
 	public int getDefenseBuffTurnsRemaining() { return defenseBuffTurnsRemaining; }
-	public void setDefenseBuffTurnsRemaining(int defenseBuffTurnsRemaining) { this.defenseBuffTurnsRemaining = defenseBuffTurnsRemaining; }
+	public void setDefenseBuffTurnsRemaining(int defenseBuffTurnsRemaining) { 
+		this.defenseBuffTurnsRemaining = defenseBuffTurnsRemaining; 
+		}
 
 	public void setCurrentHp(int newHp) {
 		this.currentHp=newHp;
@@ -60,6 +73,35 @@ public abstract class Combatants {
 			alive = false;
 		}
 	}
+	public boolean isStunned() {
+		return stunned;
+	}
+	public void setStunned(boolean b) {
+		// TODO Auto-generated method stub
+		this.stunned=b;
+	}
+	public int getStunTurnsRemaining() {
+		return StunTurnsRemaining;
+	}
+	public void setStunTurnsRemaining(int stunDuration) {
+		// TODO Auto-generated method stub
+		this.StunTurnsRemaining=stunDuration;
+	}
+	
+	
+	public boolean isSmokeBombProtected() { return smokeBombProtected; }
+
+	public void setSmokeBombProtected(boolean smokeBombProtected) {
+	    this.smokeBombProtected = smokeBombProtected;
+	}
+	
+
+	public int getSmokeBombTurnsRemaining() { return smokeBombTurnsRemaining; }
+
+	public void setSmokeBombTurnsRemaining(int smokeBombTurnsRemaining) {
+	    this.smokeBombTurnsRemaining = smokeBombTurnsRemaining;
+	}
+
 }
 
 
