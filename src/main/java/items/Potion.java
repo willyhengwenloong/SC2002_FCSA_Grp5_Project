@@ -1,7 +1,6 @@
 package items;
 
 import java.util.List;
-
 import combatants.*;
 
 public class Potion implements Items {
