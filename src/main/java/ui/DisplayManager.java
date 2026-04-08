@@ -94,9 +94,9 @@ public class DisplayManager {
 		System.out.println("  " + message);
 	}
 
-	public static void printRoundEndSummary(Player player, List<Combatants> enemies) {
+	public static void printRoundEndSummary(Player player, List<Combatants> enemies, int round) {
 		System.out.println(DLINE);
-		System.out.print("  End of Round: " + player.getStatusSummary());
+		System.out.print("  End of Round " + round + ": " + player.getStatusSummary());
 		System.out.println();
 		for (Combatants e : enemies) {
 			System.out.println("  " + e.getStatusSummary()

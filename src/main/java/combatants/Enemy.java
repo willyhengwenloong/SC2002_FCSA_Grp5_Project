@@ -7,6 +7,15 @@ public abstract class Enemy extends Combatants{
 	}
 	
 	public String getStatusSummary() {
-		return "TEST Summary";
+		StringBuilder sb = new StringBuilder();
+		sb.append(getName())
+		.append(" | HP: ").append(getCurrentHp()).append("/").append(getMaxHp())
+		.append(" | ATK: ").append(getAttack())
+		.append(" | DEF: ").append(getEffectiveDefense())
+		.append(" | SPD: ").append(getSpeed());
+		
+		// statusEffect [STUNNED] etc
+		
+		return sb.toString();
 	}
 }

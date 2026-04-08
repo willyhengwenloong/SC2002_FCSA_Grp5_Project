@@ -12,7 +12,25 @@ public abstract class Player extends Combatants {
 	}
 	
 	public String getStatusSummary() {
-		return "Test Summary";
+		StringBuilder sb = new StringBuilder();
+		sb.append("\n  ").append(getName())
+		.append(" | HP: ").append(getCurrentHp()).append("/").append(getMaxHp())
+		.append(" | ATK: ").append(getAttack())
+		.append(" | DEF: ").append(getEffectiveDefense())
+		.append(" (base:").append(getBaseDefense()).append(")")
+		.append(" | SPD: ").append(getSpeed());
+		
+		//SpecialSkillCooldown
+		if(specialSkillCooldown > 0) {
+			sb.append(" | ").append(getSpecialSkillName()).append(" CD: ").append(specialSkillCooldown);
+		} else {
+			sb.append(" | ").append(getSpecialSkillName()).append(": READY");
+		}
+		
+		//append Items list here
+		
+		
+		return sb.toString();
 	}
 	
 	public int getSpecialSkillCooldown() {
