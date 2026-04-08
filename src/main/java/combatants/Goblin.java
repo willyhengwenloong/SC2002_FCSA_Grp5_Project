@@ -9,4 +9,8 @@ public class Goblin extends Enemy{
 	public Goblin() {
 		super("Goblin " + (char)('A' + instanceCount++), 55, 35, 15, 25);
 	}
+	
+	public static void resetCounter() {
+		instanceCount = 0;
+	}
 }
