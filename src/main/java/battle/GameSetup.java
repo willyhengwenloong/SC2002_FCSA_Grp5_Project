@@ -8,12 +8,12 @@ public class GameSetup {
 	
 	public GameSetup() {}
 	
-	public void settingUp() {
+	public Player settingUp() {
 		DisplayManager.printLoadingScreen();
-		selectPlayer();
+		return selectPlayer();
 	}
 	
-	public void selectPlayer() {
+	public Player selectPlayer() {
 		DisplayManager.printPlayerChoices();
 		int choice = InputHandler.readInt(1, 2);
 		if (choice == 1) {
@@ -22,5 +22,6 @@ public class GameSetup {
 			selectedPlayer = new Wizard();
 		}
 		System.out.println(" Selected: " + selectedPlayer.getName());
+		return selectedPlayer;
 	}
 }
