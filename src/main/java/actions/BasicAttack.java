@@ -6,8 +6,9 @@ public class BasicAttack implements Actions{
 	public void execute(Combatants user) {
         System.out.println(user.getName() + " uses Basic Attack.");
 	}
+	
 	public void execute(Combatants attacker, Combatants target) {
-        int damage = attacker.getAttack() - (target.getDefense() + target.getDefenseBuff());
+        int damage = attacker.getAttack() - target.getEffectiveDefense();
         
         if (damage<0) {
         		damage=0;

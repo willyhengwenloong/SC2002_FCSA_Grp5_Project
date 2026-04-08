@@ -33,12 +33,12 @@ public class Wizard extends Player{
 			
 			int enemyOldHp = enemy.getCurrentHp();
 			int attack = getAttack();
-			int damage = Math.max(0, attack - enemy.getDefense());
+			int damage = Math.max(0, attack - enemy.getEffectiveDefense());
 			enemy.takeDamage(damage);
 			
 			System.out.println(enemy.getName() + " HP: " + enemyOldHp + " → " 
 			+ enemy.getCurrentHp() + " (dmg: " + attack + "-" 
-					+ enemy.getDefense() + "=" + damage + ")");
+					+ enemy.getBaseDefense() + "=" + damage + ")");
 			
 			if(!enemy.isAlive()) {
 				int before = getAttack();

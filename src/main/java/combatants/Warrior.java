@@ -20,7 +20,7 @@ public class Warrior extends Player {
 		Combatants enemy = target.get(0); //only getting one target
 		
 		int enemyOldHp = enemy.getCurrentHp();
-		int damage = Math.max(0, getAttack() - enemy.getDefense());
+		int damage = Math.max(0, getAttack() - enemy.getEffectiveDefense());
 		enemy.takeDamage(damage);
 		
 		//apply stun effect here for 2 turns
@@ -30,7 +30,7 @@ public class Warrior extends Player {
 		System.out.println(getName() + " uses Shield Bash on " + enemy.getName() 
 		+ " HP: " + enemyOldHp + " → " 
 		+ enemy.getCurrentHp() + " (dmg: " + getAttack() + "-" 
-				+ enemy.getDefense() + "=" + damage + ") | " + enemy.getName() + " STUNNED (2 turns)");
+				+ enemy.getBaseDefense() + "=" + damage + ") | " + enemy.getName() + " STUNNED (2 turns)");
 		
 		if(!enemy.isAlive()) {
 			System.out.println(" ✗ ELIMINATED");
