@@ -62,7 +62,7 @@ public class BattleEngine {
 				}
 			}
 			
-			DisplayManager.printRoundEndSummary(player, enemies);
+			DisplayManager.printRoundEndSummary(player, enemies, round);
 			
 			for (Combatants c : allCombatants) {
 				if (c.getDefenseBuffTurnsRemaining() > 0) {
