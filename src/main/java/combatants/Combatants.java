@@ -8,8 +8,12 @@ public abstract class Combatants {
 	private int defense;
 	private int speed;
 	private boolean alive;
-	private int defenseBuff;
+	
+	//Defense Buff
+	private int defenseBuffAmount;
 	private int defenseBuffTurnsRemaining;
+	
+	//Status Effect
 	private boolean stunned;
 	private int StunTurnsRemaining;
 	private boolean smokeBombProtected;
@@ -23,48 +27,49 @@ public abstract class Combatants {
 		this.defense = defense;
 		this.speed = speed;
 		this.alive = true;
-		this.defenseBuff = 0;
+		this.defenseBuffAmount = 0;
 		this.defenseBuffTurnsRemaining = 0;
+		
 		this.stunned=false;
 		this.StunTurnsRemaining=0;
 		this.smokeBombProtected = false;
 		this.smokeBombTurnsRemaining = 0;
 	}
 	
-	//getter setter
+	// Combatants Stats
 	public String getName() {return name;}
 	public int getMaxHp() {return maxHp;}
 	public int getCurrentHp() {return currentHp;}
 	public int getAttack() { return attack;}
-	public void setAttack(int attack) {
-		this.attack=attack;
-	}
-	public int getDefense() {return defense;}
+	public int getBaseAttack() { return attack; }
+	public int getBaseDefense() {return defense;}
 	public int getSpeed() {return speed;}
 	public boolean isAlive() {return alive;}
-	public int getDefenseBuff() { return defenseBuff; }
-	public void setDefenseBuff(int defenseBuff) { this.defenseBuff = defenseBuff; }
 	
-	public int getDefenseBuffTurnsRemaining() { return defenseBuffTurnsRemaining; }
+	public int getEffectiveDefense() {
+		return defense + defenseBuffAmount;
+	}
+	
+	
+	
+	
+	
+	//Setter Getter
+	public void setAttack(int attack) {this.attack=attack;}
+	public void setCurrentHp(int newHp) {this.currentHp=newHp;}
+	public void setAlive(boolean b) {this.alive=b;}
+	public void setDefenseBuff(int defenseBuff) { this.defenseBuffAmount = defenseBuff; }
 	public void setDefenseBuffTurnsRemaining(int defenseBuffTurnsRemaining) { 
-		this.defenseBuffTurnsRemaining = defenseBuffTurnsRemaining; 
-		}
-
-	public void setCurrentHp(int newHp) {
-		this.currentHp=newHp;
-	}
-	public void setAlive(boolean b) {
-		this.alive=b;
-		
-	}
+		this.defenseBuffTurnsRemaining = defenseBuffTurnsRemaining; }
 	
+	public int getDefenseBuff() { return defenseBuffAmount; }
+	
+	
+	// HP Management-------------------------------------------------------
 	// Capped at MaxHP
 	public void heal(int amt) {
 		currentHp = Math.min(maxHp, currentHp + amt);
 	}
-	
-	//to return a summary of the combatant stats
-	public abstract String getStatusSummary();
 	
 	public void takeDamage(int damage) {
 		int dmg = Math.min(0, damage);
@@ -73,6 +78,37 @@ public abstract class Combatants {
 			alive = false;
 		}
 	}
+	
+	
+	// Defense Buff --------------------------------------------------------
+	public void applyDefenseBuff(int amount, int rounds) {
+		defenseBuffAmount += amount;
+		defenseBuffTurnsRemaining = Math.max(defenseBuffTurnsRemaining, rounds);
+	}
+	
+	
+	public void tickDefenseBuff() {
+		if (defenseBuffTurnsRemaining > 0) {
+			defenseBuffTurnsRemaining--;
+			if (defenseBuffTurnsRemaining == 0) {
+				defenseBuffAmount = 0;
+			}
+		}
+	}
+	
+	public boolean hasDefenseBuff() {
+		return defenseBuffTurnsRemaining > 0;
+	}
+	
+	public int getDefenseBuffTurnsRemaining() { return defenseBuffTurnsRemaining; }
+	
+	
+	
+	
+	
+	
+	// status effect--------------------------------------------------------------
+	
 	public boolean isStunned() {
 		return stunned;
 	}
@@ -101,7 +137,11 @@ public abstract class Combatants {
 	public void setSmokeBombTurnsRemaining(int smokeBombTurnsRemaining) {
 	    this.smokeBombTurnsRemaining = smokeBombTurnsRemaining;
 	}
-
+	
+	
+	// Abstract Methods ------------------------------------------------------------
+	//to return a summary of the combatant Stats
+	public abstract String getStatusSummary();
 }
 
 
