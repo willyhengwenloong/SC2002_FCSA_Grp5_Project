@@ -8,6 +8,7 @@ public abstract class Player extends Combatants {
 	
 	public Player(String name, int hp, int attack, int defense, int speed) {
 		super(name, hp, attack, defense, speed);
+		this.specialSkillCooldown = 0;
 		
 	}
 	
@@ -33,18 +34,37 @@ public abstract class Player extends Combatants {
 		return sb.toString();
 	}
 	
-	public int getSpecialSkillCooldown() {
-		return specialSkillCooldown;
-	}
 	
-	//to display the special skill name for each classes
-	public abstract String getSpecialSkillName();
+	//items 
+	
 	
 	public List<Items> getAvailableItems() {
 		//the "pass" in java
 		throw new UnsupportedOperationException("Not implemented yet");
 	}
 	
-	public abstract void executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy);
+	// special skill cooldown
+	public boolean isSpecialSkillReady() {
+		return specialSkillCooldown == 0;
+	}
+	
+	public int getSpecialSkillCooldown() {
+		return specialSkillCooldown;
+	}
+	
+	public void setSpecialSkillCooldown(int cooldown) {
+		this.specialSkillCooldown = cooldown;
+	}
+	
+	public void decrementCooldown() {
+		if(specialSkillCooldown > 0) {
+			specialSkillCooldown--;
+		}
+	}
+	
+	public abstract String executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy);
+	
+	//to display the special skill name for each classes
+	public abstract String getSpecialSkillName();
 	
 }

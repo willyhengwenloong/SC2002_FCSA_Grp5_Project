@@ -25,8 +25,12 @@ public class Wizard extends Player{
 		return getAttack() + bonusDamage;
 	}
 	
-	public void executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy) {
-		System.out.println(this.getName() + "uses Arcane Blast --> All Enemies:");
+	public String executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy) {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(getName()).append(" uses Arcane Blast --> All Enemies:")
+		.append(getAttack()).append("\n");
+		
 		
 		for (Combatants enemy: target) {
 			if(!enemy.isAlive()) continue;
@@ -36,18 +40,24 @@ public class Wizard extends Player{
 			int damage = Math.max(0, attack - enemy.getEffectiveDefense());
 			enemy.takeDamage(damage);
 			
-			System.out.println(enemy.getName() + " HP: " + enemyOldHp + " → " 
-			+ enemy.getCurrentHp() + " (dmg: " + attack + "-" 
-					+ enemy.getBaseDefense() + "=" + damage + ")");
+			sb.append(" ").append(enemy.getName())
+			.append(" HP: ").append(enemyOldHp).append(" → ").append(enemy.getCurrentHp())
+			.append(" (dmg: ").append(attack).append("-")
+			.append(enemy.getBaseDefense()).append("=").append(damage).append(")");
+			
+			
 			
 			if(!enemy.isAlive()) {
 				int before = getAttack();
 				bonusDamage += 10;
-				System.out.println(" ✗ ELIMINATED | ATK: " + before 
-						+ " → " + getAttack() + " (+10)");
+				sb.append(" ✗ ELIMINATED | ATK: ").append(before)
+						.append(" → ").append(getAttack()).append(" (+10)");
 			}
-			
+			sb.append("\n");
 		}
+		
+		
+		return sb.toString().trim();
 		
 	}
 }
