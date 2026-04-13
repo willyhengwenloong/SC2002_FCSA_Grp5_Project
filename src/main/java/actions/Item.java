@@ -1,6 +1,8 @@
 package actions;
+import java.util.List;
 import combatants.Combatants;
 import items.Items;
+import combatants.Player;
 
 public class Item implements Actions{
 	
@@ -11,9 +13,9 @@ public class Item implements Actions{
 	}
 	
 	@Override
-    public void execute(Combatants user) {
-        System.out.println(user.getName() + " uses an item.");
-        
+    public String execute(Combatants user, List<Combatants> targets) {
+        if(!(user instanceof Player)) return "Only players can use items!";
+		return items.use((Player) user, targets);
 	}
 	
 	public String getName() { return "Item: " + items.getName();}

@@ -1,31 +1,38 @@
 package actions;
+
+import java.util.List;
 import combatants.Combatants;
+
 public class BasicAttack implements Actions{
-	
-	@Override
-	public void execute(Combatants user) {
-        System.out.println(user.getName() + " uses Basic Attack.");
-	}
-	
-	public void execute(Combatants attacker, Combatants target) {
-        int damage = attacker.getAttack() - target.getEffectiveDefense();
+		
+	public String execute(Combatants user, List<Combatants> targets) {
+		if (targets == null || targets.isEmpty()) { return user.getName() + " has no target!";}
+        Combatants target = targets.get(0);
         
-        if (damage<0) {
-        		damage=0;
+        
+		int damage = Math.max(0, user.getAttack()) - target.getEffectiveDefense();
+        if (damage<0) {damage=0;}
+        
+        int oldHp = target.getCurrentHp();
+        target.takeDamage(damage);
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append(user.getName()).append(" --> BasicAttack --> ").append(target.getName())
+        .append(": HP: ").append(oldHp).append(" --> ").append(target.getCurrentHp())
+        .append(" (dmg: ").append(user.getAttack()).append("-").append(target.getBaseDefense());
+        
+        int defBuff = target.getEffectiveDefense() - target.getBaseDefense();
+        if (defBuff > 0) {
+        		sb.append("+").append(defBuff).append("[buff]");
         }
+        sb.append("=").append(damage).append(")");
         
-        target.setCurrentHp(target.getCurrentHp() - damage);
-      
         
-        if (target.getCurrentHp() < 0) {
-            target.setCurrentHp(0);
+        if (!target.isAlive()) {
+        		sb.append(" ELIMINATED");
         }
-        
-        if (target.getCurrentHp() == 0) {
-        		target.setAlive(false);
-        }
-        
-        System.out.println(attacker.getName() + " attacks " + target.getName() + " for " + damage + " damage. HP left: " + target.getCurrentHp());
+        return sb.toString();
+        	
 	}
 	
 	public String getName() { return "BasicAttack";}

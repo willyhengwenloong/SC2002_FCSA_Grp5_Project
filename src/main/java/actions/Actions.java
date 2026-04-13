@@ -1,9 +1,10 @@
 package actions;
 
+import java.util.List;
+
 import combatants.Combatants;
 
 public interface Actions {
-	void execute(Combatants user);
-	
+	String execute(Combatants user, List<Combatants> targets);
 	String getName();
 }
