@@ -14,4 +14,6 @@ public class Defend implements Actions{
         System.out.println(user.getName() + " uses Defend. Defense increased by "
         		+ DEFENSE_ADDs + " for " + DURATION + " rounds.");
 	}
+	
+	public String getName() { return "Defend";}
 }

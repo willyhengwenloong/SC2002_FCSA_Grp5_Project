@@ -27,5 +27,7 @@ public class BasicAttack implements Actions{
         
         System.out.println(attacker.getName() + " attacks " + target.getName() + " for " + damage + " damage. HP left: " + target.getCurrentHp());
 	}
+	
+	public String getName() { return "BasicAttack";}
 
 }

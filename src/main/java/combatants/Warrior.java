@@ -16,7 +16,7 @@ public class Warrior extends Player {
 		return "Shield Bash";
 	}
 	
-	public void executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy) {
+	public String executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy) {
 		Combatants enemy = target.get(0); //only getting one target
 		
 		int enemyOldHp = enemy.getCurrentHp();
@@ -26,14 +26,18 @@ public class Warrior extends Player {
 		//apply stun effect here for 2 turns
 		
 		
+		StringBuilder sb = new StringBuilder();
+		sb.append(getName()).append(" uses Shield Bash on ").append(enemy.getName())
+		.append(" HP: ").append(enemyOldHp).append(" → ").append(enemy.getCurrentHp())
+		.append(" (dmg: ").append(getAttack()).append("-").append(enemy.getBaseDefense())
+		.append("=").append(damage).append(") | ")
+		.append(enemy.getName()).append(" STUNNED (2 turns)");
 		
-		System.out.println(getName() + " uses Shield Bash on " + enemy.getName() 
-		+ " HP: " + enemyOldHp + " → " 
-		+ enemy.getCurrentHp() + " (dmg: " + getAttack() + "-" 
-				+ enemy.getBaseDefense() + "=" + damage + ") | " + enemy.getName() + " STUNNED (2 turns)");
 		
 		if(!enemy.isAlive()) {
-			System.out.println(" ✗ ELIMINATED");
+			sb.append(" ✗ ELIMINATED");
 		}
+		
+		return sb.toString();
 	}
 }
