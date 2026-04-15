@@ -65,4 +65,12 @@ public class Wizard extends Player{
 	public Actions chooseAction(List<Combatants> targets, List<Combatants> allies) {
 		return null;
 	}
+	
+	public String getStatusSummary() {
+        String base = super.getStatusSummary();
+        if (bonusDamage > 0) {
+            base += " | Arcane Bonus: +" + bonusDamage + " ATK";
+        }
+        return base;
+    }
 }
