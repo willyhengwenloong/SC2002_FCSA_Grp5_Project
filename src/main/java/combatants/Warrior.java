@@ -2,6 +2,8 @@ package combatants;
 
 import java.util.List;
 import actions.Actions;
+import statusEffects.StunEffect;
+import combatants.Combatants;
 
 public class Warrior extends Player {
 	private static final int Base_HP = 260;
@@ -25,7 +27,9 @@ public class Warrior extends Player {
 		enemy.takeDamage(damage);
 		
 		//apply stun effect here for 2 turns
-		
+		// Apply stun for 2 turns (current turn already in effect; BattleEngine ticks after skip)
+	    enemy.addStatusEffect(new StunEffect(2));
+	    setSpecialSkillCooldown(3);
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(getName()).append(" uses Shield Bash on ").append(enemy.getName())
