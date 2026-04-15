@@ -1,15 +1,13 @@
 package sc2002.assignment1;
 
-import battle.BattleEngine;
-import battle.GameSetup;
-// Main entry point for the Turn Based Combat
-import combatants.Player;
+import battle.GameManager;
 
+/**
+ * Main entry point for the Turn-Based Combat Arena.
+ * SC2002 Group Assignment AY25/26 Semester 2
+ */
 public class Main {
-	public static void main(String[] args) {
-        GameSetup setup = new GameSetup();
-        Player player = setup.settingUp();
-        BattleEngine engine = new BattleEngine();
-        engine.start(player);
+    public static void main(String[] args) {
+        new GameManager().run();
     }
 }
