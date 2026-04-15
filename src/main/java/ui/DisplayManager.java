@@ -59,7 +59,7 @@ public class DisplayManager {
 
 	public static void printItemChoices() {
 		System.out.println();
-		System.out.println("┌─ Choose Item " + "───────────────────────────────────────┐");
+		System.out.println("┌─ Choose Item " + "────────────────────────────────────────────┐");
 		System.out.println("│  1. Potion      – Heal 100 HP (capped at max HP)         │");
 		System.out.println("│  2. Power Stone – Free extra special skill use           │");
 		System.out.println("│                   (does not affect cooldown)             │");
@@ -118,19 +118,19 @@ public class DisplayManager {
 
 	public static void printPlayerActionMenu(Player player, boolean specialReady, List<Items> availableItems) {
 		System.out.println();
-		System.out.println("  ┌─ " + player.getName() + "'s Turn ──────────────────────────────┐");
-		System.out.println("  │  1. Basic Attack                                               │");
-		System.out.println("  │  2. Defend (+10 DEF for current + next round)                  │");
+		System.out.println("  ┌─ " + player.getName() + "'s Turn ────────────────────────────────────────┐");
+		System.out.println("  │  1. Basic Attack                                               ");
+		System.out.println("  │  2. Defend (+10 DEF for current + next round)                  ");
 
 		String itemLine = availableItems.isEmpty()
-				? "  │  3. Item         [No items available]                    │"
-				: "  │  3. Item         " + formatItemsShort(availableItems) + "│";
+				? "  │  3. Item         [No items available]                    "
+				: "  │  3. Item         " + formatItemsShort(availableItems) ;
 		System.out.println(itemLine);
 
 		String cooldownStr = specialReady
 				? "[READY]"
 				: "[CD: " + player.getSpecialSkillCooldown() + "]";
-		System.out.printf("  │  4. %-20s %-26s│%n",
+		System.out.printf("  │  4. %-20s %-26s %n",
 				player.getSpecialSkillName(), cooldownStr);
 		System.out.println("  └────────────────────────────────────────────────────────┘");
 		System.out.print("  Choice: ");

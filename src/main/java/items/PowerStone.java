@@ -18,8 +18,8 @@ public class PowerStone implements Items{
 		String result = player.executeSpecialSkill(targets, targets);
 		player.setSpecialSkillCooldown(savedCooldown);
 		
-		return "Power Stone used --> " + player.getSpecialSkillName() + " triggered!\n" 
-		+ result + "\n(Cooldown unchanged --> " + savedCooldown + ")";
+		return "Power Stone used → " + player.getSpecialSkillName() + " triggered!\n" 
+		+ result + "\n(Cooldown unchanged → " + savedCooldown + ")";
 	}
 	
 	@Override

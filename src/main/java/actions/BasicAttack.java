@@ -17,19 +17,19 @@ public class BasicAttack implements Actions{
         target.takeDamage(damage);
         
         StringBuilder sb = new StringBuilder();
-        sb.append(user.getName()).append(" --> BasicAttack --> ").append(target.getName())
-        .append(": HP: ").append(oldHp).append(" --> ").append(target.getCurrentHp())
+        sb.append(user.getName()).append(" → BasicAttack → ").append(target.getName())
+        .append(": HP: ").append(oldHp).append(" → ").append(target.getCurrentHp())
         .append(" (dmg: ").append(user.getAttack()).append("-").append(target.getBaseDefense());
         
         int defBuff = target.getEffectiveDefense() - target.getBaseDefense();
         if (defBuff > 0) {
-        		sb.append("+").append(defBuff).append("[buff]");
+        		sb.append("-").append(defBuff).append("[buff]");
         }
         sb.append("=").append(damage).append(")");
         
         
         if (!target.isAlive()) {
-        		sb.append(" ELIMINATED");
+        		sb.append(" ✗ ELIMINATED");
         }
         return sb.toString();
         	

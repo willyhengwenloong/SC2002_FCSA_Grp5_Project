@@ -29,7 +29,7 @@ public class Wizard extends Player{
 	public String executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy) {
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(getName()).append(" uses Arcane Blast --> All Enemies:")
+		sb.append(getName()).append(" uses Arcane Blast → All Enemies: ")
 		.append(getAttack()).append("\n");
 		
 		setSpecialSkillCooldown(3);

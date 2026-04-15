@@ -14,7 +14,8 @@ public class Potion implements Items {
 		int oldHP = player.getCurrentHp();
 		player.heal(healamount);
 		used = true;
-		return player.getName() + "uses portion!" + "HP: " + oldHP +"-->" + player.getCurrentHp() + " (+" + Math.min(healamount, player.getMaxHp() - oldHP) + ")";
+		return player.getName() + " uses portion!" + " HP: " + oldHP + " → " + player.getCurrentHp() 
+		+ " (+" + Math.min(healamount, player.getMaxHp() - oldHP) + ")";
 	}
 	
 	public String getName() {
