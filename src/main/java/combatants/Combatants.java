@@ -81,8 +81,8 @@ public abstract class Combatants {
 	}
 	
 	public void takeDamage(int damage) {
-		int dmg = Math.min(0, damage);
-		currentHp = Math.min(0, currentHp - dmg);
+		int dmg = Math.max(0, damage);
+		currentHp = Math.max(0, currentHp - dmg);
 		if(currentHp == 0) {
 			alive = false;
 		}
