@@ -153,7 +153,7 @@ public abstract class Combatants {
 	}
 
 	public List<StatusEffect> getStatusEffects() {
-	    return getStatusEffects();
+	    return statusEffects;
 	}
 
 	public boolean hasStatusEffect(Class<? extends StatusEffect> type) {
