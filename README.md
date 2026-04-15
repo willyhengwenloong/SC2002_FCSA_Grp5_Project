@@ -11,6 +11,15 @@
 
 ---
 
+## 🎮 Overview
+A Command-line turn-based combat arena developed for the **SC2002 Group Assignment (AY25/26 Semester 2)**.
+This project emphasizes **Object-Oriented Design Principles (OODP)** and **SOLID** architecture to create an extensible and robust combat system.
+
+Players take on the role of a **Warrior** or **Wizard** to battle waves of enemies across three difficulty levels: Easy, Medium, and Hard. 
+
+
+
+
 ## 🛠️ Prerequisites
 To run this project, you need:
 * **Java JDK 17** (or your preferred version)
@@ -51,6 +60,10 @@ To ensure the project links correctly with Eclipse and GitHub, follow these exac
 * pom.xml - DO NOT DELETE. This handles all libraries and Java Versions
 * .gitignore - Keeps temporary Eclipse junk out of our GitHub
 
+## 📊 Documentation
+- [Class Diagram JPG](docs/images/)
+
+---
 
 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
