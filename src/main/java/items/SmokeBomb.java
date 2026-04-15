@@ -1,10 +1,10 @@
 package items;
 
 import java.util.List;
-
 import combatants.Combatants;
 import combatants.Player;
 import statusEffects.SmokeBombEffect;
+
 
 public class SmokeBomb implements Items{
 	private boolean used = false;
@@ -15,9 +15,6 @@ public class SmokeBomb implements Items{
 		
 		// Duration 2: covers the current turn (enemies after player this round) + the next full round
 		player.addStatusEffect(new SmokeBombEffect(2));
-		//implement status effect
-		
-		
 		return player.getName() + " uses Smoke Bomb! Enemy attacks deal 0 damage this turn + next turn.";
  	}
 	
