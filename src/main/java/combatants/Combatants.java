@@ -1,5 +1,10 @@
 package combatants;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import statusEffects.StatusEffect;
+
 public abstract class Combatants {
 	private String name;
 	private int maxHp;
@@ -19,6 +24,9 @@ public abstract class Combatants {
 	private boolean smokeBombProtected;
 	private int smokeBombTurnsRemaining;
 	
+	// Status effects list
+	protected List<StatusEffect> statusEffects;
+	
 	public Combatants(String name, int hp, int attack, int defense, int speed) {
 		this.name = name;
 		this.maxHp = hp;
@@ -34,6 +42,7 @@ public abstract class Combatants {
 		this.StunTurnsRemaining=0;
 		this.smokeBombProtected = false;
 		this.smokeBombTurnsRemaining = 0;
+		this.statusEffects = new ArrayList<>();
 	}
 	
 	// Combatants Stats
@@ -137,7 +146,46 @@ public abstract class Combatants {
 	public void setSmokeBombTurnsRemaining(int smokeBombTurnsRemaining) {
 	    this.smokeBombTurnsRemaining = smokeBombTurnsRemaining;
 	}
-	
+	// — Status Effects
+
+	public void addStatusEffect(StatusEffect effect) {
+	    statusEffects.add(effect);
+	}
+
+	public List<StatusEffect> getStatusEffects() {
+	    return getStatusEffects();
+	}
+
+	public boolean hasStatusEffect(Class<? extends StatusEffect> type) {
+	    for (StatusEffect e : statusEffects) {
+	        if (type.isInstance(e)) return true;
+	    }
+	    return false;
+	}
+
+	/**
+	 * Applies and ticks all status effects. Returns log messages.
+	 */
+	public List<String> processStatusEffects() {
+	    List<String> logs = new ArrayList<>();
+	    List<StatusEffect> toRemove = new ArrayList<>();
+	    for (StatusEffect effect : statusEffects) {
+	        String msg = effect.onTurnStart(this);
+	        if (msg != null) logs.add(msg);
+	        if (effect.isExpired()) toRemove.add(effect);
+	    }
+	    statusEffects.removeAll(toRemove);
+	    return logs;
+	}
+
+	public void tickStatusEffects() {
+	    List<StatusEffect> toRemove = new ArrayList<>();
+	    for (StatusEffect e : statusEffects) {
+	        e.tick();
+	        if (e.isExpired()) toRemove.add(e);
+	    }
+	    statusEffects.removeAll(toRemove);
+	}
 	
 	// Abstract Methods ------------------------------------------------------------
 	//to return a summary of the combatant Stats

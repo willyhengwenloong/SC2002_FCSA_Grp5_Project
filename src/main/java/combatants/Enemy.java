@@ -1,5 +1,7 @@
 package combatants;
 
+import statusEffects.StatusEffect;
+
 public abstract class Enemy extends Combatants{
 	public Enemy(String name, int hp, int attack, int defense, int speed) {
 		super(name, hp, attack, defense, speed);
@@ -15,7 +17,10 @@ public abstract class Enemy extends Combatants{
 		.append(" | SPD: ").append(getSpeed());
 		
 		// statusEffect [STUNNED] etc
-		
+		if (!statusEffects.isEmpty()) {
+	        sb.append(" | Effects: ");
+	        statusEffects.forEach(e -> sb.append(e.getName()).append("(").append(e.getDuration()).append(") "));
+		}
 		return sb.toString();
 	}
 }
