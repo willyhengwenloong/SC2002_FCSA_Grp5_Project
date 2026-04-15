@@ -32,8 +32,8 @@ public class Warrior extends Player {
 	    setSpecialSkillCooldown(3);
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(getName()).append(" uses Shield Bash on ").append(enemy.getName())
-		.append(" HP: ").append(enemyOldHp).append(" → ").append(enemy.getCurrentHp())
+		sb.append(getName()).append(" → Shield Bash → ").append(enemy.getName())
+		.append(": HP: ").append(enemyOldHp).append(" → ").append(enemy.getCurrentHp())
 		.append(" (dmg: ").append(getAttack()).append("-").append(enemy.getBaseDefense())
 		.append("=").append(damage).append(") | ")
 		.append(enemy.getName()).append(" STUNNED (2 turns)");

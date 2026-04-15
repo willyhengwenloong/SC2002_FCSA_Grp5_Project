@@ -209,12 +209,13 @@ public class DisplayManager {
 	}
 
 	public static void printStunnedSkip(Combatants combatant) {
-		System.out.println("  " + combatant.getName() + " is STUNNED – turn skipped!");
+		System.out.println("  " + combatant.getName() + " → STUNNED: Turn skipped!");
 	}
 
 	public static void printSmokeBombBlock(Combatants attacker, Combatants target) {
-		System.out.println("  " + attacker.getName() + " → Attack blocked by Smoke Bomb! 0 damage to "
-				+ target.getName());
+		System.out.println("  " + attacker.getName() + " → BasicAttack → " + target.getName() 
+		+ ": 0 (Smoke Bomb active) | " + target.getName() 
+		+ " HP: " + target.getCurrentHp());
 	}
 
 	public static void printSmokeBombExpiry(Combatants holder) {

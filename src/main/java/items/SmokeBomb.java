@@ -15,7 +15,7 @@ public class SmokeBomb implements Items{
 		
 		// Duration 2: covers the current turn (enemies after player this round) + the next full round
 		player.addStatusEffect(new SmokeBombEffect(2));
-		return player.getName() + " uses Smoke Bomb! Enemy attacks deal 0 damage this turn + next turn.";
+		return player.getName() + " → Smoke Bomb used: Enemy attacks deal 0 damage this turn + next ";
  	}
 	
 	public String getName() { return "Smoke Bomb";}
