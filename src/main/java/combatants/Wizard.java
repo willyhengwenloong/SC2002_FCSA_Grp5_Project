@@ -23,7 +23,7 @@ public class Wizard extends Player{
 	// return base attack and bonus from skills
 	@Override
 	public int getAttack() {
-		return getAttack() + bonusDamage;
+		return Base_Attack + bonusDamage;
 	}
 	
 	public String executeSpecialSkill(List<Combatants> target, List<Combatants> allEnemy) {
@@ -32,7 +32,7 @@ public class Wizard extends Player{
 		sb.append(getName()).append(" uses Arcane Blast --> All Enemies:")
 		.append(getAttack()).append("\n");
 		
-		
+		setSpecialSkillCooldown(3);
 		for (Combatants enemy: target) {
 			if(!enemy.isAlive()) continue;
 			
