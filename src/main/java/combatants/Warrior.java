@@ -1,6 +1,7 @@
 package combatants;
 
 import java.util.List;
+import actions.Actions;
 
 public class Warrior extends Player {
 	private static final int Base_HP = 260;
@@ -39,5 +40,9 @@ public class Warrior extends Player {
 		}
 		
 		return sb.toString();
+	}
+	
+	public Actions chooseAction(List<Combatants> targets, List<Combatants> allies) {
+		return null;
 	}
 }

@@ -1,5 +1,6 @@
 package combatants;
 import java.util.List;
+import actions.Actions;
 
 public class Wizard extends Player{
 	private static final int Base_Hp = 200;
@@ -59,5 +60,9 @@ public class Wizard extends Player{
 		
 		return sb.toString().trim();
 		
+	}
+	
+	public Actions chooseAction(List<Combatants> targets, List<Combatants> allies) {
+		return null;
 	}
 }

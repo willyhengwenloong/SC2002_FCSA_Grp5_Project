@@ -2,7 +2,7 @@ package combatants;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import actions.Actions;
 import statusEffects.StatusEffect;
 
 public abstract class Combatants {
@@ -190,6 +190,8 @@ public abstract class Combatants {
 	// Abstract Methods ------------------------------------------------------------
 	//to return a summary of the combatant Stats
 	public abstract String getStatusSummary();
+	
+	public abstract Actions chooseAction(List<Combatants> targets, List<Combatants> allies);
 }
 
 
