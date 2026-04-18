@@ -121,7 +121,7 @@ src/main/java
 
 ## 📊 Documentation
 - [Class Diagram JPG](docs/images/classdiagram.jpg)
-- [Sequence Diagram PNG](docs/images/UML SEQUENCE DIAGRAM.png)
+- [Sequence Diagram PNG](docs/images/UML_SEQUENCE_DIAGRAM.png)
 
 ---
 
