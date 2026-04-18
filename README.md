@@ -7,7 +7,7 @@
 * **Willy** - [GitHub Profile](https://github.com/willyhengwenloong)
 * **Balaji** - [GitHub Profile](https://github.com/balaji4567)
 * **ZhiYou** - [GitHub Profile](https://github.com/3049564941-hub)
-* **Ramesh** - [GitHub Profile](https://github.com/uva-lgtm)
+* **Uvadharanya** - [GitHub Profile](https://github.com/uva-lgtm)
 
 ---
 
@@ -60,8 +60,68 @@ To ensure the project links correctly with Eclipse and GitHub, follow these exac
 * pom.xml - DO NOT DELETE. This handles all libraries and Java Versions
 * .gitignore - Keeps temporary Eclipse junk out of our GitHub
 
+```text
+
+src/main/java	
+    ├── battle/                       			# [CONTROL LAYER]
+    │   ├── GameManager.java          			# Coordinates the overall game lifecycle and state transitions
+    │   ├── BattleEngine.java         			# Manages turn-based combat sequences and round logic
+    │   └── GameSetup.java            			# Handles character initialization, item selection, and difficulty
+    │
+    ├── combatants/                   			# [ENTITY LAYER]
+    │   ├── Combatants.java           			# Abstract base class defining shared attributes (HP, MP, Stats)
+    │   ├── Player.java               			# Base class for user-controllable entities
+    │   ├── Enemy.java                			# Base class for AI-controlled opponents
+    │   ├── Warrior.java              			# Specialised Player subclass 
+    │   ├── Wizard.java               			# Specialised Player subclass 
+    │   ├── Goblin.java               			# Specialised Enemy subclass
+    │   └── Wolf.java                 			# Specialised Enemy subclass
+    │
+    ├── actions/                      
+    │   ├── Actions.java              			# Interface defining the execution contract for combat moves
+    │   ├── BasicAttack.java          			# Offensive move implementation
+    │   ├── Defend.java					# Defensive move implementation
+    │   ├── Item.java                 			# Using consumable items in combat
+    │   └── SpecialSkills.java        			# Complex abilities unique to specific combatant types
+    │
+    ├── items/                        
+    │   ├── Items.java                			# Base interface for all consumable items and their effects
+    │   ├── Potion.java
+    │   ├── PowerStone.java           
+    │   └── SmokeBomb.java           
+    │
+    ├── statusEffects/                
+    │   ├── StatusEffect.java         			# Interface for recurring effects (DoT, Buffs, Debuffs)
+    │   ├── ArcaneBlastEffect.java    
+    │   ├── SmokeBombEffect.java      
+    │   └── StunEffect.java           
+    │
+    ├── strategy/							
+    │   ├── BasicActionStrategy.java  			# Default behavior for simple actions
+    │   ├── EnemyBehaviourStrategy.java			# Interface to decide for enemy move
+    │   ├── TurnOrderStrategy.java    			# Interface to decide combatant sequencing per round
+    │   └── speedBasedTurnOrderStrategy.java 		# Implementation of turn order based on speed stats
+    │    	        
+    ├── level/                        
+    │   └── Level.java					# Manages environment settings and difficulty scaling
+    │
+    ├── ui/                           			# [BOUNDARY LAYER]
+    │   ├── DisplayManager.java				# Visual formatting and console output rendering
+    │   └── InputHandler.java         			# Sanitized user input processing and validation
+    │
+    └── sc2002/assignment1            
+        └── main.java                 			# Entry point of the application
+
+```
+
+
+    
+    
+                            
+
 ## 📊 Documentation
-- [Class Diagram JPG](docs/images/)
+- [Class Diagram JPG](docs/images/classdiagram.jpg)
+- [Sequence Diagram PNG](docs/images/UML SEQUENCE DIAGRAM.png)
 
 ---
 
