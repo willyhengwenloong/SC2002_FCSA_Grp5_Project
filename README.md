@@ -80,7 +80,7 @@ src/main/java
     ├── actions/                      
     │   ├── Actions.java              			# Interface defining the execution contract for combat moves
     │   ├── BasicAttack.java          			# Offensive move implementation
-    │   ├── Defend.java					# Defensive move implementation
+    │   ├── Defend.java								# Defensive move implementation
     │   ├── Item.java                 			# Using consumable items in combat
     │   └── SpecialSkills.java        			# Complex abilities unique to specific combatant types
     │
@@ -100,13 +100,13 @@ src/main/java
     │   ├── BasicActionStrategy.java  			# Default behavior for simple actions
     │   ├── EnemyBehaviourStrategy.java			# Interface to decide for enemy move
     │   ├── TurnOrderStrategy.java    			# Interface to decide combatant sequencing per round
-    │   └── speedBasedTurnOrderStrategy.java 		# Implementation of turn order based on speed stats
+    │   └── speedBasedTurnOrderStrategy.java 	# Implementation of turn order based on speed stats
     │    	        
     ├── level/                        
-    │   └── Level.java					# Manages environment settings and difficulty scaling
+    │   └── Level.java								# Manages environment settings and difficulty scaling
     │
     ├── ui/                           			# [BOUNDARY LAYER]
-    │   ├── DisplayManager.java				# Visual formatting and console output rendering
+    │   ├── DisplayManager.java					# Visual formatting and console output rendering
     │   └── InputHandler.java         			# Sanitized user input processing and validation
     │
     └── sc2002/assignment1            
