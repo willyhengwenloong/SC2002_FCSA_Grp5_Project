@@ -69,7 +69,7 @@ src/main/java
     │   └── GameSetup.java            			# Handles character initialization, item selection, and difficulty
     │
     ├── combatants/                   			# [ENTITY LAYER]
-    │   ├── Combatants.java           			# Abstract base class defining shared attributes (HP, MP, Stats)
+    │   ├── Combatants.java           			# Abstract base class for all fighting units
     │   ├── Player.java               			# Base class for user-controllable entities
     │   ├── Enemy.java                			# Base class for AI-controlled opponents
     │   ├── Warrior.java              			# Specialised Player subclass 
